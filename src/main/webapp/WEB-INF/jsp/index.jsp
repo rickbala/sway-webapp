@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
     <h1>Hello Swayer!</h1>
     <h2>${greeting}</h2>
