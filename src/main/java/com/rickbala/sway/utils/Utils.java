@@ -5,9 +5,7 @@ import java.util.Random;
 
 public class Utils {
 
-    private Utils() {
-        throw new IllegalStateException("Utility class");
-    }
+    private Utils() { throw new IllegalStateException("Utility class"); }
 
     private static Random r = new Random();
 
