@@ -10,25 +10,25 @@ public class Sway {
     @Id
     @GeneratedValue
     private Long id;
-    private String sway; //TODO limited to 2000 chars in the database
+    private String text; //TODO limited to 2000 chars in the database
 
     public Sway() {
     }
 
     public Sway(String text) {
-        this.sway = text;
+        this.text = text;
     }
 
-    public Sway(Long id, String sway) {
+    public Sway(Long id, String text) {
         this.id = id;
-        this.sway = sway;
+        this.text = text;
     }
 
     @Override
     public String toString() {
         return "Sway{" +
                 "id=" + id +
-                ", sway='" + sway + '\'' +
+                ", text='" + text + '\'' +
                 '}';
     }
 
@@ -40,12 +40,12 @@ public class Sway {
         this.id = id;
     }
 
-    public String getSway() {
-        return sway;
+    public String getText() {
+        return text;
     }
 
-    public void setSway(String sway) {
-        this.sway = sway;
+    public void setText(String text) {
+        this.text = text;
     }
 
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -16,27 +17,19 @@ public class MainController {
     SwayRepository swayRepository;
 
     @GetMapping("/")
-    public String showIndex(){
+    public String showIndex(ModelMap modelMap){
+        modelMap.addAttribute("sway", new Sway());
+
+        SwayApp swayApp = new SwayApp();
+        modelMap.addAttribute("greeting", swayApp.createRandomMoto() );
+
         return "index";
     }
 
     @ResponseBody
-    @GetMapping("/sway")
-    public String sway(ModelMap modelMap){
-        String body = "<h1>Hello Swayer!</h1>";
-
-        SwayApp swayApp = new SwayApp();
-        body += "<h2>" + swayApp.createRandomMoto() + "</h2>";
-        body += "<input type='text'/>";
-
-        return body;
-    }
-
-    @ResponseBody
-    @GetMapping("/saveTest")
-    public String saveTest() {
-        Sway sway = new Sway("I'm swaying!");
-        //swayDAO.save(sway);
+    @PostMapping("/save")
+    public String saveTest(ModelMap modelMap) {
+        Sway sway = (Sway)modelMap.getAttribute("sway");
         swayRepository.save(sway);
 
         System.out.println("Salvo com sucesso!");
