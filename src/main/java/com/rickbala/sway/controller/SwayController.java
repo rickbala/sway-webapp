@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -20,6 +21,18 @@ public class SwayController {
 
     @GetMapping("/")
     public String showIndex(ModelMap modelMap){
+        modelMap.addAttribute("sway", new Sway());
+        modelMap.addAttribute("greeting", Utils.createRandomMoto() );
+        List<Sway> listOfSways = swayRepository.findAll();
+        modelMap.addAttribute("listOfSways", listOfSways);
+        return "index";
+    }
+
+    @GetMapping("/{channel}")
+    public String getChannelName(@PathVariable("channel") String channel, ModelMap modelMap){
+        if (channel != null) {
+            modelMap.addAttribute("channel", channel);
+        }
         modelMap.addAttribute("sway", new Sway());
         modelMap.addAttribute("greeting", Utils.createRandomMoto() );
         List<Sway> listOfSways = swayRepository.findAll();

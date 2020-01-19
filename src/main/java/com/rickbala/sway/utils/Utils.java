@@ -5,12 +5,18 @@ import java.util.Random;
 
 public class Utils {
 
-    public static int getRandomNumberInRange(int min, int max) {
-        Random r = new Random();
+    private Utils() {
+        throw new IllegalStateException("Utility class");
+    }
+
+    private static Random r = new Random();
+
+    private static int getRandomNumberInRange(int min, int max) {
         return r.nextInt((max - min) + 1) + min;
     }
 
-    private static ArrayList<String> defineMotos(ArrayList<String> motos) {
+    private static ArrayList<String> defineMotos() {
+        ArrayList<String> motos = new ArrayList<>();
         String beggining = "Sway it what ";
         String end = ":";
         motos.add(beggining + "hurts" + end);
@@ -21,8 +27,7 @@ public class Utils {
     }
 
     public static String createRandomMoto() {
-        ArrayList<String> motos = new ArrayList<>();
-        motos = defineMotos(motos);
+        ArrayList<String> motos = defineMotos();
         int randomMotoIndex = getRandomNumberInRange(0, motos.size() - 1);
         return motos.get(randomMotoIndex);
     }
