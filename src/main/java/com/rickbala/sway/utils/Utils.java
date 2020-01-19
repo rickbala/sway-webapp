@@ -10,7 +10,7 @@ public class Utils {
         return r.nextInt((max - min) + 1) + min;
     }
 
-    private static ArrayList<String> createMotos(ArrayList<String> motos) {
+    private static ArrayList<String> defineMotos(ArrayList<String> motos) {
         String beggining = "Sway it what ";
         String end = ":";
         motos.add(beggining + "hurts" + end);
@@ -22,7 +22,7 @@ public class Utils {
 
     public static String createRandomMoto() {
         ArrayList<String> motos = new ArrayList<>();
-        motos = createMotos(motos);
+        motos = defineMotos(motos);
         int randomMotoIndex = getRandomNumberInRange(0, motos.size() - 1);
         return motos.get(randomMotoIndex);
     }

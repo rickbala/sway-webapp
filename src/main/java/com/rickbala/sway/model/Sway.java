@@ -1,5 +1,6 @@
 package com.rickbala.sway.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,6 +11,8 @@ public class Sway {
     @Id
     @GeneratedValue
     private Long id;
+
+    @Column
     private String text; //TODO limited to 2000 chars in the database
 
     public Sway() {
@@ -22,14 +25,6 @@ public class Sway {
     public Sway(Long id, String text) {
         this.id = id;
         this.text = text;
-    }
-
-    @Override
-    public String toString() {
-        return "Sway{" +
-                "id=" + id +
-                ", text='" + text + '\'' +
-                '}';
     }
 
     public Long getId() {
