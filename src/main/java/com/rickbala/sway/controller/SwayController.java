@@ -19,11 +19,11 @@ public class SwayController {
     @Autowired
     SwayRepository swayRepository;
 
-    private static final String defaultChannel = "/";
+    private static final String DEFAULT_CHANNEL = "/";
 
     @GetMapping("/")
     public String showIndex(ModelMap modelMap){
-        Sway sway = new Sway(defaultChannel);
+        Sway sway = new Sway(DEFAULT_CHANNEL);
         populateModelMap(modelMap, sway);
         return "index";
     }
@@ -39,14 +39,14 @@ public class SwayController {
     public String saveSway(@ModelAttribute Sway sway) {
         swayRepository.save(sway);
         String res = "redirect:/";
-        if (sway.getChannel() != null && !sway.getChannel().equals(defaultChannel)) res += sway.getChannel();
+        if (sway.getChannel() != null && !sway.getChannel().equals(DEFAULT_CHANNEL)) res += sway.getChannel();
         return res;
     }
 
     private void populateModelMap(ModelMap modelMap, Sway sway) {
         modelMap.addAttribute("sway", sway);
         modelMap.addAttribute("greeting", Utils.createRandomMoto());
-        List<Sway> listOfSways = swayRepository.findAll();
+        List<Sway> listOfSways = swayRepository.findTop10ByChannelOrderByIdDesc(sway.getChannel());
         modelMap.addAttribute("listOfSways", listOfSways);
     }
 
