@@ -5,8 +5,9 @@
 <body>
     <h1>Hello Swayer!</h1>
     <h2>${greeting}</h2>
-    <h3>Channel name: ${channel}</h3>
     <form:form action="/save" modelAttribute="sway" method="post">
+        <h3>Channel name: ${sway.channel}</h3>
+        <form:hidden path="channel"/>
         <form:input path="text"/>
         <input type="submit" value="Sway!"/>
     </form:form>

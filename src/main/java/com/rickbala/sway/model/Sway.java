@@ -13,18 +13,16 @@ public class Sway {
     private Long id;
 
     @Column
-    private String text; //TODO limited to 2000 chars in the database
+    private String text;
+
+    @Column
+    private String channel;
 
     public Sway() {
     }
 
-    public Sway(String text) {
-        this.text = text;
-    }
-
-    public Sway(Long id, String text) {
-        this.id = id;
-        this.text = text;
+    public Sway(String channel) {
+        this.channel = channel;
     }
 
     public Long getId() {
@@ -41,6 +39,14 @@ public class Sway {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getChannel() {
+        return channel;
+    }
+
+    public void setChannel(String channel) {
+        this.channel = channel;
     }
 
 }

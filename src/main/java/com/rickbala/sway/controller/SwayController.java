@@ -19,31 +19,35 @@ public class SwayController {
     @Autowired
     SwayRepository swayRepository;
 
+    private static final String defaultChannel = "/";
+
     @GetMapping("/")
     public String showIndex(ModelMap modelMap){
-        modelMap.addAttribute("sway", new Sway());
-        modelMap.addAttribute("greeting", Utils.createRandomMoto() );
-        List<Sway> listOfSways = swayRepository.findAll();
-        modelMap.addAttribute("listOfSways", listOfSways);
+        Sway sway = new Sway(defaultChannel);
+        populateModelMap(modelMap, sway);
         return "index";
     }
 
     @GetMapping("/{channel}")
     public String getChannelName(@PathVariable("channel") String channel, ModelMap modelMap){
-        if (channel != null) {
-            modelMap.addAttribute("channel", channel);
-        }
-        modelMap.addAttribute("sway", new Sway());
-        modelMap.addAttribute("greeting", Utils.createRandomMoto() );
-        List<Sway> listOfSways = swayRepository.findAll();
-        modelMap.addAttribute("listOfSways", listOfSways);
+        Sway sway = new Sway(channel);
+        populateModelMap(modelMap, sway);
         return "index";
     }
 
     @PostMapping("/save")
     public String saveSway(@ModelAttribute Sway sway) {
         swayRepository.save(sway);
-        return "redirect:/";
+        String res = "redirect:/";
+        if (sway.getChannel() != null && !sway.getChannel().equals(defaultChannel)) res += sway.getChannel();
+        return res;
+    }
+
+    private void populateModelMap(ModelMap modelMap, Sway sway) {
+        modelMap.addAttribute("sway", sway);
+        modelMap.addAttribute("greeting", Utils.createRandomMoto());
+        List<Sway> listOfSways = swayRepository.findAll();
+        modelMap.addAttribute("listOfSways", listOfSways);
     }
 
 }
