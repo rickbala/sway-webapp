@@ -1,8 +1,8 @@
 package com.rickbala.sway.controller;
 
-import com.rickbala.sway.main.SwayApp;
 import com.rickbala.sway.model.Sway;
 import com.rickbala.sway.model.repository.SwayRepository;
+import com.rickbala.sway.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,10 +19,7 @@ public class MainController {
     @GetMapping("/")
     public String showIndex(ModelMap modelMap){
         modelMap.addAttribute("sway", new Sway());
-
-        SwayApp swayApp = new SwayApp();
-        modelMap.addAttribute("greeting", swayApp.createRandomMoto() );
-
+        modelMap.addAttribute("greeting", Utils.createRandomMoto() );
         return "index";
     }
 

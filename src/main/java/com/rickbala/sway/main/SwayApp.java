@@ -41,7 +41,7 @@ public class SwayApp implements Laughable, Funny, Direct, Postable {
         ArrayList<String> motos = new ArrayList<>();
         motos = createMotos(motos);
         int randomMotoIndex = Utils.getRandomNumberInRange(0, motos.size() - 1);
-        return motos.get(randomMotoIndex);
+        return null;
     }
 
     @Override
