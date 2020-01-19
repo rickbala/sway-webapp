@@ -2,7 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <title>Hello Swayer!</title>
+</head>
 <body>
     <h1>Hello Swayer!</h1>
     <h2>${greeting}</h2>
