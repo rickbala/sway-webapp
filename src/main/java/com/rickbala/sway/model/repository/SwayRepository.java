@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface SwayRepository extends JpaRepository<Sway, Long> {
 
-    List<Sway> findTop10ByChannel3OrderByIdDesc(String channel);
+    List<Sway> findTop30ByChannelOrderByIdDesc(String channel);
 
 }
