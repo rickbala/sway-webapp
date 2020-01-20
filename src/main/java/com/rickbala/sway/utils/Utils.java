@@ -29,4 +29,14 @@ public class Utils {
         int randomMotoIndex = getRandomNumberInRange(0, motos.size() - 1);
         return motos.get(randomMotoIndex);
     }
+
+    public static String createRandomChannel(){
+        int numberOfChars = 8;
+        StringBuilder builder = new StringBuilder();
+        for (int i=0; i< numberOfChars; i++){
+            builder.append((char)getRandomNumberInRange(65,90));
+        }
+        return builder.toString();
+    }
+
 }

@@ -48,6 +48,7 @@ public class SwayController {
         modelMap.addAttribute("greeting", Utils.createRandomMoto());
         List<Sway> listOfSways = swayRepository.findTop30ByChannelOrderByIdDesc(sway.getChannel());
         modelMap.addAttribute("listOfSways", listOfSways);
+        modelMap.addAttribute("randomChannel", Utils.createRandomChannel());
     }
 
 }

@@ -12,6 +12,7 @@
     <h2>${greeting}</h2>
     <form:form action="/save" modelAttribute="sway" method="post">
         <h3>Channel name: ${sway.channel}</h3>
+        <h4><a href="${randomChannel}">Create Random</a></h4>
         <form:hidden path="channel"/>
         <form:input path="text"/>
         <input type="submit" value="Sway!"/>
