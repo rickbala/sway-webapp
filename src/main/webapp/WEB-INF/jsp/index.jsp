@@ -19,7 +19,6 @@
         <br/><input type="checkbox" id="autoUpdate" onclick="setAutoUpdate(this.checked)"/> Autoupdate
     </form:form>
     <c:forEach var="sway" items="${listOfSways}">
-        <c:out value="${sway.id}"/>
         <c:out value="${sway.text}"/>
         <br/>
     </c:forEach>

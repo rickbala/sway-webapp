@@ -37,6 +37,7 @@ public class SwayController {
 
     @PostMapping("/save")
     public String saveSway(@ModelAttribute Sway sway) {
+        sway.setId(Utils.createRandomSwayId());
         swayRepository.save(sway);
         String res = "redirect:/";
         if (sway.getChannel() != null && !sway.getChannel().equals(DEFAULT_CHANNEL)) res += sway.getChannel();

@@ -39,4 +39,13 @@ public class Utils {
         return builder.toString();
     }
 
+    public static String createRandomSwayId(){
+        int numberOfChars = 36;
+        StringBuilder builder = new StringBuilder();
+        for (int i=0; i< numberOfChars; i++){
+            builder.append((char)getRandomNumberInRange(65,90));
+        }
+        return builder.toString();
+    }
+
 }

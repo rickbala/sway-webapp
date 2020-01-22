@@ -1,21 +1,16 @@
 package com.rickbala.sway.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document
 public class Sway {
 
     @Id
-    @GeneratedValue
-    private Long id;
-
-    @Column
+    private String id;
     private String text;
-
-    @Column
+    @Indexed
     private String channel;
 
     public Sway() {
@@ -25,11 +20,11 @@ public class Sway {
         this.channel = channel;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
