@@ -4,14 +4,17 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document
 public class Sway {
 
     @Id
     private String id;
-    private String text;
     @Indexed
     private String channel;
+    private String text;
+    private Date date;
 
     public Sway() {
     }
@@ -42,6 +45,14 @@ public class Sway {
 
     public void setChannel(String channel) {
         this.channel = channel;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
 }

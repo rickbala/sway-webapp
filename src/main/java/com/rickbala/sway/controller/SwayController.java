@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -38,6 +39,7 @@ public class SwayController {
     @PostMapping("/save")
     public String saveSway(@ModelAttribute Sway sway) {
         sway.setId(Utils.createRandomSwayId());
+        sway.setDate(new Date());
         swayRepository.save(sway);
         String res = "redirect:/";
         if (sway.getChannel() != null && !sway.getChannel().equals(DEFAULT_CHANNEL)) res += sway.getChannel();
@@ -47,7 +49,7 @@ public class SwayController {
     private void populateModelMap(ModelMap modelMap, Sway sway) {
         modelMap.addAttribute("sway", sway);
         modelMap.addAttribute("greeting", Utils.createRandomMoto());
-        List<Sway> listOfSways = swayRepository.findTop30ByChannelOrderByIdDesc(sway.getChannel());
+        List<Sway> listOfSways = swayRepository.findTop24ByChannelOrderByDateDesc(sway.getChannel());
         modelMap.addAttribute("listOfSways", listOfSways);
         modelMap.addAttribute("randomChannel", Utils.createRandomChannel());
     }
