@@ -35,6 +35,6 @@
         if (document.getElementById('autoUpdate').checked){
             window.location.reload(1);
         }
-    }, 10000);
+    }, 5000);
 </script>
 </html>
