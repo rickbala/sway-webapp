@@ -11,7 +11,7 @@
     <h1>Hello Swayer!</h1>
     <h2>${greeting}</h2>
     <form:form action="/save" modelAttribute="sway" method="post">
-        <h3>Channel name: ${sway.channel}</h3>
+        <span onclick="changeChannel()"><h3>Channel name: ${sway.channel}</h3></span>
         <h4><a href="${randomChannel}">Create Random</a></h4>
         <form:hidden path="channel"/>
         <form:input path="text"/>
@@ -35,5 +35,11 @@
             window.location.reload(1);
         }
     }, 5000);
+    function changeChannel(){
+        var channel = prompt("Enter channel name:");
+        if (channel != null) {
+            window.location.href = "/" + channel;
+        }
+    }
 </script>
 </html>
