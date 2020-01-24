@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface SwayRepository extends MongoRepository<Sway, Long> {
 
-    List<Sway> findTop24ByChannelOrderByDateDesc(String channel);
+    List<Sway> findTop1000ByChannelOrderByDateDesc(String channel);
 
 }
