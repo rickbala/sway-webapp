@@ -14,7 +14,7 @@
         <span onclick="changeChannel()"><h3>Channel name: ${sway.channel}</h3></span>
         <h4><a href="${randomChannel}">Create Random</a></h4>
         <form:hidden path="channel"/>
-        <form:input path="text"/>
+        <form:input path="text" id="swayInput"/>
         <input type="submit" value="Sway!"/>
         <br/><input type="checkbox" id="autoUpdate" onclick="setAutoUpdate(this.checked)"/> Autoupdate
     </form:form>
@@ -41,5 +41,8 @@
             window.location.href = "/" + channel;
         }
     }
+    document.addEventListener("DOMContentLoaded", function(event) { //dom is ready
+        document.getElementById("swayInput").focus();
+    });
 </script>
 </html>
