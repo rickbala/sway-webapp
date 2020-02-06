@@ -8,7 +8,7 @@
     <title>Hello Swayer!</title>
 </head>
 <body>
-    <h1>Hello Swayer!</h1>
+    <h1>Hello <span onclick="window.location.href='/'">Swayer!</span></h1>
     <h2>${greeting}</h2>
     <form:form action="/save" modelAttribute="sway" method="post">
         <span onclick="changeChannel()"><h3>Channel name: ${sway.channel}</h3></span>

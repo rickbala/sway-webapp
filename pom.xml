@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.rickbala</groupId>
 	<artifactId>SwayWebApp</artifactId>
-	<version>0.9.0</version>
+	<version>0.9.1</version>
 	<name>SwayWebApp</name>
 	<description>Fork this and help make communication free.</description>
 
