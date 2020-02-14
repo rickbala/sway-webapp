@@ -40,6 +40,7 @@ public class SwayController {
     public String saveSway(@ModelAttribute Sway sway) {
         sway.setId(Utils.createRandomSwayId());
         sway.setDate(new Date());
+        if (sway.getText().length() > 2000) sway.setText(sway.getText().substring(0, 2000));
         swayRepository.save(sway);
         String res = "redirect:/";
         if (sway.getChannel() != null && !sway.getChannel().equals(DEFAULT_CHANNEL)) res += sway.getChannel();
