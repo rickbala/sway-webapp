@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface SwayRepository extends MongoRepository<Sway, Long> {
+public interface SwayRepository extends MongoRepository<Sway, String> {
 
     List<Sway> findTop1000ByChannelOrderByDateDesc(String channel);
 
