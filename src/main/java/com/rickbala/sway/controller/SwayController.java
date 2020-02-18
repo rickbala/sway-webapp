@@ -4,6 +4,7 @@ import com.rickbala.sway.model.Sway;
 import com.rickbala.sway.model.repository.SwayRepository;
 import com.rickbala.sway.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +37,7 @@ public class SwayController {
         return "index";
     }
 
+    //@PreAuthorize("isAuthenticated")
     @PostMapping("/save")
     public String saveSway(@ModelAttribute Sway sway) {
         sway.setId(Utils.createRandomSwayId());
