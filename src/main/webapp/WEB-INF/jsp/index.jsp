@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="favicon.ico">
     <title>Hello Swayer!</title>
+    <style>
+        #linkPrevious{text-decoration: none; position: absolute; top: 1px; right: 12px;margin: auto;}
+        #linkNext{text-decoration: none; position: absolute; top: 1px; right: 1px;margin: auto;}
+    </style>
 </head>
 <body>
+    <a id="linkPrevious" href="http://communication-webapp.herokuapp.com"><</a>
+    <a id="linkNext" href="https://stream2me-webapp.herokuapp.com">></a>
     <h1>Hello <span onclick="window.location.href='/'">Swayer!</span></h1>
     <h2>${greeting}</h2>
     <form:form action="/save" modelAttribute="sway" method="post">
